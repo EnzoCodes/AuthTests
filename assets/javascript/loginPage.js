@@ -1,63 +1,64 @@
-    console.log("JavaScript Up!");
+console.log("JavaScript Up!");
 
-    var config = {
-    apiKey: "AIzaSyAKovIgnElTXfZog6-eGf7X3vU1I7go6yI",
-    authDomain: "imagewordmatch.firebaseapp.com",
-    databaseURL: "https://imagewordmatch.firebaseio.com",
-    projectId: "imagewordmatch",
-    storageBucket: "imagewordmatch.appspot.com",
-    messagingSenderId: "621229379920"
-    };
-    firebase.initializeApp(config);
+var config = {
+apiKey: "AIzaSyAKovIgnElTXfZog6-eGf7X3vU1I7go6yI",
+authDomain: "imagewordmatch.firebaseapp.com",
+databaseURL: "https://imagewordmatch.firebaseio.com",
+projectId: "imagewordmatch",
+storageBucket: "imagewordmatch.appspot.com",
+messagingSenderId: "621229379920"
+};
+firebase.initializeApp(config);
 
-    var database = firebase.database();
+var database = firebase.database();
 
-    var user = firebase.auth().currentUser;
-    var userIdentity = profile.uid;
+var user = firebase.auth().currentUser;
+var userId = firebase.auth().currentUser.uid;
+// var userIdentity = profile.uid;
 
-    if (user != null) {
-    user.providerData.forEach(function (profile) {
-        console.log("Sign-in provider: " + profile.providerId);
-        console.log("  Provider-specific UID: " + profile.uid);
-        console.log("  Name: " + profile.displayName);
-        console.log("  Email: " + profile.email);
-        console.log("  Photo URL: " + profile.photoURL);
-        });
-    };
+if (user != null) {
+user.providerData.forEach(function (profile) {
+    console.log("Sign-in provider: " + profile.providerId);
+    console.log("  Provider-specific UID: " + profile.uid);
+    console.log("  Name: " + profile.displayName);
+    console.log("  Email: " + profile.email);
+    console.log("  Photo URL: " + profile.photoURL);
+    });
+};
 
-    // function scorePlus(uid, score, username) {
-    //
-    //     var postData = {
-    //         author: username,
-    //         uid: uid,
-    //         score: 0
-    //     };
-    //
-    //     // Get a new Key for new score?
-    //     var moreScore = firebase.database().ref().child('score').push(1).key;
-    //
-    //     var updates = {};
-    //     updates['/score/' + newScoreKey] = scoreData;
-    //
-    //     return firebase.database().ref().update(updates);
-    // }
+// function scorePlus(uid, score, username) {
+//
+//     var postData = {
+//         author: username,
+//         uid: uid,
+//         score: 0
+//     };
+//
+//     // Get a new Key for new score?
+//     var moreScore = firebase.database().ref().child('score').push(1).key;
+//
+//     var updates = {};
+//     updates['/score/' + newScoreKey] = scoreData;
+//
+//     return firebase.database().ref().update(updates);
+// }
 
 
-    // OR
+// OR
 
-    // When score++, make post = true, to activate this codeblock!
+// When score++, make post = true, to activate this codeblock!
 
-    // function toggleScore(scoreRef, uid) {
-    //    scoreRef.transaction(function(post) {
-    //        if (post) {
-    //            if (post.score && post.score[uid]){
-    //                post.scoreCount++;
-    //            }
-    //            post.stars[uid] = false;
-    //        }
-    //    });
-    //    return post;
-    //    }
+// function toggleScore(scoreRef, uid) {
+//    scoreRef.transaction(function(post) {
+//        if (post) {
+//            if (post.score && post.score[uid]){
+//                post.scoreCount++;
+//            }
+//            post.stars[uid] = false;
+//        }
+//    });
+//    return post;
+//    }
 
 
 
@@ -74,3 +75,13 @@
 
 // @Override
 // public void onMatch_In_Guess_Array(View score)
+
+
+
+// transction - update score
+// firebase.database().ref('/users/' + userId)
+// var userId = firebase.auth().currentUser.uid;
+
+//Users
+    //UID
+        //score.
