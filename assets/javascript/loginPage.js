@@ -1,22 +1,70 @@
-//  (function() {
-//
-//
-//
-//
-//
-// }()); // Closing wrapper.
+function() {
+
+    console.log("JavaScript Up!");
+
+    var config = {
+    apiKey: "AIzaSyAKovIgnElTXfZog6-eGf7X3vU1I7go6yI",
+    authDomain: "imagewordmatch.firebaseapp.com",
+    databaseURL: "https://imagewordmatch.firebaseio.com",
+    projectId: "imagewordmatch",
+    storageBucket: "imagewordmatch.appspot.com",
+    messagingSenderId: "621229379920"
+    };
+    firebase.initializeApp(config);
+
+    var database = firebase.database();
+
+    var user = firebase.auth().currentUser;
+    var userIdentity = profile.uid;
+
+    if (user != null) {
+    user.providerData.forEach(function (profile) {
+        console.log("Sign-in provider: " + profile.providerId);
+        console.log("  Provider-specific UID: " + profile.uid);
+        console.log("  Name: " + profile.displayName);
+        console.log("  Email: " + profile.email);
+        console.log("  Photo URL: " + profile.photoURL);
+        });
+    };
+
+    // function scorePlus(uid, score, username) {
+    //
+    //     var postData = {
+    //         author: username,
+    //         uid: uid,
+    //         score: 0
+    //     };
+    //
+    //     // Get a new Key for new score?
+    //     var moreScore = firebase.database().ref().child('score').push(1).key;
+    //
+    //     var updates = {};
+    //     updates['/score/' + newScoreKey] = scoreData;
+    //
+    //     return firebase.database().ref().update(updates);
+    // }
 
 
+    // OR
 
-// Ways to save database
-// set - write or replace data to a defined path, like messenger/users/<username>
-// update - update some of the keys for a defined path without replacing all of the data
-// push - add to a list of data in the database. every time you push a new NODE onto a list
-//        your databse generates a unique key, like messages/users/<unique-user-id>/<username>
-// transaction - Dont use this...
+    // When score++, make post = true, to activate this codeblock!
 
-// final FirebaseDatabase database = FirebaseDatabase.getInstance();
-// DatabaseReference ref = database.getReference("server/saving-data/fireblog");
+    // function toggleScore(scoreRef, uid) {
+    //    scoreRef.transaction(function(post) {
+    //        if (post) {
+    //            if (post.score && post.score[uid]){
+    //                post.scoreCount++;
+    //            }
+    //            post.stars[uid] = false;
+    //        }
+    //    });
+    //    return post;
+    //    }
+
+
+}();
+
+
 
 
 //  When a user registers for the game we want to save a 'score' object
