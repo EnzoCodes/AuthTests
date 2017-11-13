@@ -1,4 +1,4 @@
-$(document).on("ready", function(){
+ (function () {
     console.log("JavaScript Up!");
 
     var config = {
@@ -12,21 +12,22 @@ $(document).on("ready", function(){
     firebase.initializeApp(config);
 
     var database = firebase.database();
+    var provider = new firebase.auth.GoogleAuthProvider();
 
     var user = firebase.auth().currentUser;
     var userId = firebase.auth().currentUser.uid;
     // var userIdentity = profile.uid;
 
     if (user != null) {
-    user.providerData.forEach(function (profile) {
-        console.log("Sign-in provider: " + profile.providerId);
-        console.log("  Provider-specific UID: " + profile.uid);
-        console.log("  Name: " + profile.displayName);
-        console.log("  Email: " + profile.email);
-        console.log("  Photo URL: " + profile.photoURL);
+    user.providerData.forEach(function () {
+        console.log("Sign-in provider: " + provider.providerId);
+        console.log("  Provider-specific UID: " + provider.uid);
+        console.log("  Name: " + provider.displayName);
+        console.log("  Email: " + provider.email);
+        console.log("  Photo URL: " + provider.photoURL);
         });
     };
-});
+}());
 
 // function scorePlus(uid, score, username) {
 //
@@ -83,6 +84,7 @@ $(document).on("ready", function(){
 // transction - update score
 // firebase.database().ref('/users/' + userId)
 // var userId = firebase.auth().currentUser.uid;
+// fbUsers.child(user + "/points")
 
 //Users
     //UID
