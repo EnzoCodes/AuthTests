@@ -28,7 +28,7 @@ firebase.initializeApp(config);
     // Get elements
     const preObject = document.getElementById('object');
 
-    // create references
+    // Create references
     const dbRefObject = firebase.database().ref().child('object');
 
     //sync object changes
