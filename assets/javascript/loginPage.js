@@ -32,37 +32,65 @@
         }
     });
 
-    // firebase.auth().onAuthStateChanged(function(user) {
-    // if (user) {
-    //     // User is signed in.
-    //     var displayName = user.displayName;
-    //     var email = user.email;
-    //     var emailVerified = user.emailVerified;
-    //     var photoURL = user.photoURL;
-    //     var isAnonymous = user.isAnonymous;
-    //     var uid = user.uid;
-    //     var providerData = user.providerData;
-    //     // ...
-    // } else {
-    //     console.log("UUUUUHHHHHHH")
-    //     }
-    // });
+    var userRef = firebase.database().ref('users/user');
+    var userScoreRef = firebase.database().ref('users/user/score');
 
-    // var userId = firebase.auth().currentUser.uid;
-    // var userIdentity = profile.uid;
+    document.getElementById('points')onClick = function() {
+        userScoreRef.transaction(function(currentScore) {
+            return currentScore + 1;
+        })
+    };
 
+    userRef.transaction(function(currentData) {
+        if (currentData === null) {
+            return { user.uid };
+        } else {
+            console.log('User #' + user.uid + 'already exists!');
+            return; // ABORT
+        }
+        }, function(error, committed, snapshot) {
+            if (error) {
+                console.log('Transaction failed abnormally!', error);
+            } else if (!committed) {
+                console.log('We aboorted because user exists!');
+            } else {
+                console.log('User Added!');
+            }
+            console.log('User Data: ', snapshot.val());
+        }
+    });
 
-    // if (user != null) {
-    // user.providerData.forEach(function () {
-    //     console.log("Sign-in provider: " + provider.providerId);
-    //     console.log("  Provider-specific UID: " + provider.uid);
-    //     console.log("  Name: " + provider.displayName);
-    //     console.log("  Email: " + provider.email);
-    //     console.log("  Photo URL: " + provider.photoURL);
-    //     });
-    // };
 }());
 
+// firebase.auth().onAuthStateChanged(function(user) {
+// if (user) {
+//     // User is signed in.
+//     var displayName = user.displayName;
+//     var email = user.email;
+//     var emailVerified = user.emailVerified;
+//     var photoURL = user.photoURL;
+//     var isAnonymous = user.isAnonymous;
+//     var uid = user.uid;
+//     var providerData = user.providerData;
+//     // ...
+// } else {
+//     console.log("UUUUUHHHHHHH")
+//     }
+// });
+
+// var userId = firebase.auth().currentUser.uid;
+// var userIdentity = profile.uid;
+
+
+// if (user != null) {
+// user.providerData.forEach(function () {
+//     console.log("Sign-in provider: " + provider.providerId);
+//     console.log("  Provider-specific UID: " + provider.uid);
+//     console.log("  Name: " + provider.displayName);
+//     console.log("  Email: " + provider.email);
+//     console.log("  Photo URL: " + provider.photoURL);
+//     });
+// };
 // function scorePlus(uid, score, username) {
 //
 //     var postData = {
@@ -116,10 +144,14 @@
 
 
 // transction - update score
-// firebase.database().ref('/users/' + userId)
-// var userId = firebase.auth().currentUser.uid;
-// fbUsers.child(user + "/points")
-// fbUsers = new Firebase("https://enzocodes.github.io/AuthTests/loggedIn.html");
+
+    firebase.database().ref('/users/' + userId)
+
+    var userId = firebase.auth().currentUser.uid;
+
+    fbUsers.child(userId + "/points")
+
+    fbUsers = new Firebase("https://enzocodes.github.io/AuthTests/loggedIn.html");
 
 //Users
     //UID
