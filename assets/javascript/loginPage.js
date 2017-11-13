@@ -1,5 +1,3 @@
-function() {
-
     console.log("JavaScript Up!");
 
     var config = {
@@ -60,9 +58,6 @@ function() {
     //    });
     //    return post;
     //    }
-
-
-}();
 
 
 
