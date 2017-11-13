@@ -19,7 +19,7 @@
     var email;
     var emailVerified;
     var photoURL;
-    var uid;
+    var uid = user.uid;
     var providerData;
 
     firebase.auth().onAuthStateChanged(function(user) {
@@ -43,7 +43,7 @@
 
     userRef.transaction(function(currentData) {
         if (currentData === null) {
-            return { user.uid };
+            return { uid };
         } else {
             console.log('User #' + user.uid + 'already exists!');
             return; // ABORT
