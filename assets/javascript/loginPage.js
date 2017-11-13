@@ -12,31 +12,53 @@
     firebase.initializeApp(config);
 
     var database = firebase.database();
-    var provider = new firebase.auth.GoogleAuthProvider();
-    console.log(provider);
+    var user = firebase.auth().currentUser;
+    // var provider = new firebase.auth.GoogleAuthProvider(); Logging NULL!
+    // console.log(provider); Logging NULL!
+    var displayName;
+    var email;
+    var emailVerified;
+    var photoURL;
+    var uid;
+    var providerData;
 
-firebase.auth().onAuthStateChanged(function(user) {
+    firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
-        var user = firebase.auth().currentUser;
-        console.log(user);
+        // User is signed in.
+        var displayName = user.displayName;
+        var email = user.email;
+        var emailVerified = user.emailVerified;
+        var photoURL = user.photoURL;
+        var isAnonymous = user.isAnonymous;
+        var uid = user.uid;
+        var providerData = user.providerData;
+        // ...
     } else {
-        console.log("fuck");
-    }
-});
+        console.log("UUUUUHHHHHHH")
+        }
+    });
+
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            console.log(user);
+        } else {
+            console.log("YUCKIE");
+        }
+    });
 
     // var userId = firebase.auth().currentUser.uid;
     // var userIdentity = profile.uid;
 
 
-    if (user != null) {
-    user.providerData.forEach(function () {
-        console.log("Sign-in provider: " + provider.providerId);
-        console.log("  Provider-specific UID: " + provider.uid);
-        console.log("  Name: " + provider.displayName);
-        console.log("  Email: " + provider.email);
-        console.log("  Photo URL: " + provider.photoURL);
-        });
-    };
+    // if (user != null) {
+    // user.providerData.forEach(function () {
+    //     console.log("Sign-in provider: " + provider.providerId);
+    //     console.log("  Provider-specific UID: " + provider.uid);
+    //     console.log("  Name: " + provider.displayName);
+    //     console.log("  Email: " + provider.email);
+    //     console.log("  Photo URL: " + provider.photoURL);
+    //     });
+    // };
 }());
 
 // function scorePlus(uid, score, username) {
@@ -95,6 +117,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 // firebase.database().ref('/users/' + userId)
 // var userId = firebase.auth().currentUser.uid;
 // fbUsers.child(user + "/points")
+// fbUsers = new Firebase("https://enzocodes.github.io/AuthTests/loggedIn.html");
 
 //Users
     //UID
