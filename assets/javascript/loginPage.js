@@ -16,7 +16,8 @@
     console.log(provider);
 
     var user = firebase.auth().currentUser;
-    var userId = firebase.auth().currentUser.uid;
+    console.log(user);
+    // var userId = firebase.auth().currentUser.uid;
     // var userIdentity = profile.uid;
 
 
