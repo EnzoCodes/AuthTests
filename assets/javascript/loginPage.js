@@ -15,8 +15,15 @@
     var provider = new firebase.auth.GoogleAuthProvider();
     console.log(provider);
 
-    var user = firebase.auth().currentUser;
-    console.log(user);
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+        var user = firebase.auth().currentUser;
+        console.log(user);
+    } else {
+        console.log("fuck");
+    }
+});
+
     // var userId = firebase.auth().currentUser.uid;
     // var userIdentity = profile.uid;
 
