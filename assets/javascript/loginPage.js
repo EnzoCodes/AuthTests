@@ -114,12 +114,6 @@
 // public void onMatch_In_Guess_Array(View score)
 
 
-ka.providerData[0].uid
-ka.providerData[0].email
-ka.providerData[0].displayName
-ka.providerData[0].photoURL
-ka.uid
-
 
 // transction - update score
 // firebase.database().ref('/users/' + userId)
