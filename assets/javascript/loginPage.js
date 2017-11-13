@@ -35,7 +35,7 @@
     var userRef = firebase.database().ref('users/user');
     var userScoreRef = firebase.database().ref('users/user/score');
 
-    document.getElementById('points')onClick = function() {
+    document.getElementById('addPoints').onclick = function() {
         userScoreRef.transaction(function(currentScore) {
             return currentScore + 1;
         })
