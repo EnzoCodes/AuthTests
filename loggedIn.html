@@ -6,6 +6,10 @@
         <link rel="stylesheet" type="text/css" href="assets/css/authStyle.css">
     </head>
     <body>
+        <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+        <!-- <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-app.js"></script> -->
+        <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-database.js"></script>
         <script>
         var config = {
         apiKey: "AIzaSyAKovIgnElTXfZog6-eGf7X3vU1I7go6yI",
@@ -15,14 +19,8 @@
         storageBucket: "imagewordmatch.appspot.com",
         messagingSenderId: "621229379920"
         };
-         firebase.initializeApp(config);
+        firebase.initializeApp(config);
         </script>
-
-        <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
-        <!-- <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-app.js"></script> -->
-        <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-auth.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-database.js"></script>
-        <script src="assets/javascript/loginPage.js"></script>
 
         <!-- This stuff gets moved into loginPage.js when its finished-->
         <script text="type/javascript">
@@ -40,6 +38,15 @@
             });
         }
 
+        //if (score++ {
+        // user.updateProfile({
+        // score: score += 1
+        // }).then(function() {
+        // console.log("score +1")
+        // }).catch(function(error) {
+            // error occured
+         //  })
+         // })
 
         </script>
 
