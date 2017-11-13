@@ -1,43 +1,22 @@
- (function() {
-// Initialize Firebase
-var config = {
-apiKey: "AIzaSyAKovIgnElTXfZog6-eGf7X3vU1I7go6yI",
-authDomain: "imagewordmatch.firebaseapp.com",
-databaseURL: "https://imagewordmatch.firebaseio.com",
-projectId: "imagewordmatch",
-storageBucket: "imagewordmatch.appspot.com",
-messagingSenderId: "621229379920"
-};
-firebase.initializeApp(config);
-
-
-//
-// var score = 0;
+//  (function() {
 //
 //
-// points.addEventListener('click', function(event) {
-//     score++
-//     // Create storage reference for score
 //
-//     // Upload score
 //
-//     // Update score to screen
 //
-// });
+// }()); // Closing wrapper.
 
-    // Get elements
-    const preObject = document.getElementById('object');
 
-    // Create references
-    const dbRefObject = firebase.database().ref().child('object');
 
-    //sync object changes
-    dbRefObject.on('value', snap => {
-        preObject.innerText = JSON.stringify(snap.val(), null, 3);
-    });
+// Ways to save database
+// set - write or replace data to a defined path, like messenger/users/<username>
+// update - update some of the keys for a defined path without replacing all of the data
+// push - add to a list of data in the database. every time you push a new NODE onto a list
+//        your databse generates a unique key, like messages/users/<unique-user-id>/<username>
+// transaction - Dont use this...
 
-}()); // Closing wrapper.
-
+// final FirebaseDatabase database = FirebaseDatabase.getInstance();
+// DatabaseReference ref = database.getReference("server/saving-data/fireblog");
 
 
 //  When a user registers for the game we want to save a 'score' object

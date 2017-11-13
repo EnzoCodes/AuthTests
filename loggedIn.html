@@ -6,15 +6,49 @@
         <link rel="stylesheet" type="text/css" href="assets/css/authStyle.css">
     </head>
     <body>
+        <script>
+        var config = {
+        apiKey: "AIzaSyAKovIgnElTXfZog6-eGf7X3vU1I7go6yI",
+        authDomain: "imagewordmatch.firebaseapp.com",
+        databaseURL: "https://imagewordmatch.firebaseio.com",
+        projectId: "imagewordmatch",
+        storageBucket: "imagewordmatch.appspot.com",
+        messagingSenderId: "621229379920"
+        };
+         firebase.initializeApp(config);
+        </script>
+
         <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+        <!-- <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-app.js"></script> -->
+        <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-database.js"></script>
         <script src="assets/javascript/loginPage.js"></script>
+
+        <!-- This stuff gets moved into loginPage.js when its finished-->
+        <script text="type/javascript">
+
+        var user = firebase.auth().currentUser;
+        var userIdentity = profile.uid;
+
+        if (user != null) {
+        user.providerData.forEach(function (profile) {
+            console.log("Sign-in provider: " + profile.providerId);
+            console.log("  Provider-specific UID: " + profile.uid);
+            console.log("  Name: " + profile.displayName);
+            console.log("  Email: " + profile.email);
+            console.log("  Photo URL: " + profile.photoURL);
+            });
+        }
+
+
+        </script>
 
 
         <button class="btn-points" id="points">Click me!</button>
         <!-- Value -->
         <pre id="object"></pre>
         <!-- Child -->
-        
+
 
     </body>
 </html>
