@@ -23,28 +23,30 @@
     var providerData;
 
     firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
-        // User is signed in.
-        var displayName = user.displayName;
-        var email = user.email;
-        var emailVerified = user.emailVerified;
-        var photoURL = user.photoURL;
-        var isAnonymous = user.isAnonymous;
-        var uid = user.uid;
-        var providerData = user.providerData;
-        // ...
-    } else {
-        console.log("UUUUUHHHHHHH")
-        }
-    });
-
-    firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
             console.log(user);
+            console.log(user.uid);
+            console.log(user.displayName);
         } else {
             console.log("YUCKIE");
         }
     });
+
+    // firebase.auth().onAuthStateChanged(function(user) {
+    // if (user) {
+    //     // User is signed in.
+    //     var displayName = user.displayName;
+    //     var email = user.email;
+    //     var emailVerified = user.emailVerified;
+    //     var photoURL = user.photoURL;
+    //     var isAnonymous = user.isAnonymous;
+    //     var uid = user.uid;
+    //     var providerData = user.providerData;
+    //     // ...
+    // } else {
+    //     console.log("UUUUUHHHHHHH")
+    //     }
+    // });
 
     // var userId = firebase.auth().currentUser.uid;
     // var userIdentity = profile.uid;
@@ -111,6 +113,12 @@
 // @Override
 // public void onMatch_In_Guess_Array(View score)
 
+
+ka.providerData[0].uid
+ka.providerData[0].email
+ka.providerData[0].displayName
+ka.providerData[0].photoURL
+ka.uid
 
 
 // transction - update score
