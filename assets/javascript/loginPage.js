@@ -1,4 +1,5 @@
- (function () {
+ $(document).ready(function() {
+
     console.log("JavaScript Up!");
 
     var config = {
@@ -19,27 +20,26 @@
     var email;
     var emailVerified;
     var photoURL;
-    var uid = user.uid;
+    var uid;
     var providerData;
+    var userRef = firebase.database().ref('users/user');
+    var userScoreRef = firebase.database().ref('users/user/score');
 
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
+            uid = user.uid;
             console.log(user);
-            console.log(user.uid);
             console.log(user.displayName);
         } else {
             console.log("YUCKIE");
         }
     });
 
-    var userRef = firebase.database().ref('users/user');
-    var userScoreRef = firebase.database().ref('users/user/score');
-
-    function addPoint() {
+    $('#addPoint').on('click' function() {
         userScoreRef.transaction(function(currentScore) {
             return currentScore + 1;
         });
-    };
+    });
 
     userRef.transaction(function(currentData) {
         if (currentData === null) {
@@ -50,7 +50,9 @@
         }
     });
 
-}());
+
+
+});
 
 // firebase.auth().onAuthStateChanged(function(user) {
 // if (user) {
