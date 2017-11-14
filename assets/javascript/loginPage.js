@@ -38,7 +38,7 @@
     $('#addPoint').on('click' function() {
         userScoreRef.transaction(function(currentScore) {
             return currentScore + 1;
-        });
+        })
     });
 
     userRef.transaction(function(currentData) {
