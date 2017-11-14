@@ -35,28 +35,18 @@
     var userRef = firebase.database().ref('users/user');
     var userScoreRef = firebase.database().ref('users/user/score');
 
-    document.getElementById('addPoints').onclick = function() {
+    function addPoint() {
         userScoreRef.transaction(function(currentScore) {
             return currentScore + 1;
-        })
+        });
     };
 
     userRef.transaction(function(currentData) {
         if (currentData === null) {
-            return { uid };
+            return { userIdentity: uid };
         } else {
-            console.log('User #' + user.uid + 'already exists!');
+            console.log('User #' + uid + 'already exists!');
             return; // ABORT
-        }
-        }, function(error, committed, snapshot) {
-            if (error) {
-                console.log('Transaction failed abnormally!', error);
-            } else if (!committed) {
-                console.log('We aboorted because user exists!');
-            } else {
-                console.log('User Added!');
-            }
-            console.log('User Data: ', snapshot.val());
         }
     });
 
@@ -145,14 +135,22 @@
 
 // transction - update score
 
-    firebase.database().ref('/users/' + userId)
-
-    var userId = firebase.auth().currentUser.uid;
-
-    fbUsers.child(userId + "/points")
-
-    fbUsers = new Firebase("https://enzocodes.github.io/AuthTests/loggedIn.html");
+    // firebase.database().ref('/users/' + userId)
+    //
+    // var userId = firebase.auth().currentUser.uid;
+    //
+    // fbUsers.child(userId + "/points")
+    //
+    // fbUsers = new Firebase("https://enzocodes.github.io/AuthTests/loggedIn.html");
 
 //Users
     //UID
         //score.
+
+        // Sign out codeblock
+        //
+        // firebase.auth().signOut().then(function() {
+        //   // Sign-out successful.
+        // }).catch(function(error) {
+        //   // An error happened.
+        // });
